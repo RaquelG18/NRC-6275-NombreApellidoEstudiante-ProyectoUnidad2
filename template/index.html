@@ -8,16 +8,7 @@
 </head>
 <body>
 
-    <div v-for="(fila, indiceFila) in memorama" :key="indiceFila"
-    class="row">
-    <div :key="indiceFila+''+indiceImagen" class="col-3"
-        v-for="(imagen, indiceImagen) in fila">
-        <div class="mb-3">
-            <img @click="voltear(indiceFila, indiceImagen)"
-                :class="{'girar': imagen.mostrar}"
-                :src="(imagen.mostrar ? imagen.ruta :
-                NOMBRE_IMAGEN_OCULTA)" class="card-img-top img-fluid
-                img-thumbnail">
+  
         </div>
     </div>
 </div>
