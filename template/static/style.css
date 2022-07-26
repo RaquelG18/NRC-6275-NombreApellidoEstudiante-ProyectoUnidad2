@@ -1,0 +1,12 @@
+canvas {
+    border:3px solid rgb(22, 8, 61);
+    background-color: aquamarine;
+    margin-top: 80px;
+    margin-left: 180px;}
+
+.canvas{
+
+    border:2px solid black;
+    margin-top: 80px;
+    margin-left: 180px;
+}
