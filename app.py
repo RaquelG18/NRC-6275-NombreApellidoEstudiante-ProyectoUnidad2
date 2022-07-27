@@ -1,4 +1,4 @@
-'''#importamos las librerias necesarias 
+#importamos las librerias necesarias 
 import os
 import os.path
 import uuid
@@ -7,47 +7,23 @@ import numpy as np
 import io
 from flask import Flask, render_template, request
 from flask_sessionstore import Session
-from flask_session_captcha import FlaskSessionCaptcha
 from pymongo import MongoClient
 
 # Inicializamos la aplicación y la carpeta template
-app = Flask(__name__, template_folder="template")
+app = Flask(__name__, template_folder="template/layouts")
 
-Inicializamos la carpeta que contiene los
-archivos est ́aticos
+'''Inicializamos la carpeta que contiene los
+archivos est ́aticos'''
 app._static_folder = os.path.abspath("template/static")
 
 # configuracion de la base de datos
 mongoClient = MongoClient('localhost', 27017)
 
-# configuración del Captcha
-app.config["SECRET_KEY"] = uuid.uuid4()
-app.config['CAPTCHA_ENABLE'] = True
-
-# permite 5 caracteres en el captcha
-app.config['CAPTCHA_LENGTH'] = 5
-
-# Setea los valores del captcha 
-app.config['CAPTCHA_WIDTH'] = 160
-app.config['CAPTCHA_HEIGHT'] = 60
-app.config['SESSION_MONGODB'] = mongoClient
-app.config['SESSION_TYPE'] = 'mongodb'
-
-# habilita la sesion del servidor 
-Session(app)
-
-# Inicializamos el FlaskSessionCaptcha
-captcha = FlaskSessionCaptcha(app)
 
 # creamos el decorador para la ruta principal 
 # y agregamos los metodos get y post 
 @app.route('/', methods=['POST', 'GET'])
-def ingreso():  # Creamos la función
-    if request.method == "POST":
-        if captcha.validate():
-            return "Éxito"
-        else:
-            return "Error"
+def ingreso():  # Creamos la función 
 # Redirección a la pagina formulario.html
     return render_template("ingreso_niños.html")
 
@@ -61,4 +37,4 @@ if __name__ == "__main__":
     app.debug = True
     logging.getLogger().setLevel("DEBUG")
     app.run()
-'''
+
