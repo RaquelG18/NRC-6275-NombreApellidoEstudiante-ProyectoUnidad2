@@ -2,6 +2,12 @@
 #div1 {
   width: 370px;
   height: 350px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
+  position: static;
+  padding: 0%;
+  border: 2px solid #861f81;
+}
+
+.container{
+padding:10%;
+
 }
