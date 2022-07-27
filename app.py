@@ -34,7 +34,6 @@ def index():  # Creamos la función
 
  # Creamos el main para que la app se pueda ejecutar
 if __name__ == "__main__":
-    app.debug = True
-    logging.getLogger().setLevel("DEBUG")
-    app.run()
+    app.run(debug = True)
+   
 
