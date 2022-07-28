@@ -14,7 +14,7 @@ app = Flask(__name__, template_folder="template/layouts")
 
 '''Inicializamos la carpeta que contiene los
 archivos est ́aticos'''
-app._static_folder = os.path.abspath("template/static")
+app._static_folder = os.path.abspath("template/static/")
 
 # configuracion de la base de datos
 mongoClient = MongoClient('localhost', 27017)
